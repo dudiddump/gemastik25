@@ -1,34 +1,29 @@
 "use client";
 
-import { useState } from "react";
+import { useToggleStore } from "@/stores/useToggleStores";
 
 export default function OpenCloseButton() {
-  const [isOpen, setIsOpen] = useState(false);
+  const { isOpen, toggleOpen } = useToggleStore();
 
   return (
     <div className="lg:hidden block">
-      {isOpen ? (
-        <div
-          onClick={() => setIsOpen(!isOpen)}
-          className="lg:hidden block cursor-pointer p-3 rounded-md transition-all ease-in"
-        >
-          <div className="relative w-6 h-6">
+      <div
+        onClick={toggleOpen}
+        className="cursor-pointer p-3 rounded-md transition-all ease-in w-10 h-10 flex items-center justify-center"
+      >
+        {isOpen ? (
+          <div className="relative w-5 h-5">
             <span className="absolute w-6 h-0.5 bg-black rotate-45 top-1/2 left-0"></span>
             <span className="absolute w-6 h-0.5 bg-black -rotate-45 top-1/2 left-0"></span>
           </div>
-        </div>
-      ) : (
-        <div
-          onClick={() => setIsOpen(!isOpen)}
-          className="lg:hidden block cursor-pointer hover:bg-primary p-3 rounded-md transition-all ease-in "
-        >
-          <div className="space-y-1">
+        ) : (
+          <div className="space-y-1 bg-primary p-2 rounded-md">
             <span className="block w-6 h-0.5 bg-black"></span>
             <span className="block w-6 h-0.5 bg-black"></span>
             <span className="block w-6 h-0.5 bg-black"></span>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 }
