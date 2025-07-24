@@ -7,7 +7,7 @@ import ThemeToggleButton from "./SwitchThemeButton";
 
 export default function Navbar() {
   return (
-    <div className=" dark:bg-black fixed top-0 right-0 left-0">
+    <div className=" dark:bg-black fixed top-0 right-0 left-0 bg-white">
       <nav className="py-6 flex items-center justify-between xl:px-20 px-5 z-10 container mx-auto">
         {/* logo */}
         <Logo />
@@ -22,13 +22,11 @@ export default function Navbar() {
           <LoginButton className="hidden lg:block" />
         </div>
 
-
-
         {/* mobile close open button */}
-        <div className="flex gap-3 lg:hidden" >
+        <div className="flex gap-3 lg:hidden">
           <ThemeToggleButton className="lg:hidden block" />
           <OpenCloseButton style={{ zIndex: 999 }} />
-          </div>
+        </div>
       </nav>
 
       <div className="flex gap-3">
