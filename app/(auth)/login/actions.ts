@@ -20,6 +20,7 @@ export async function login(prevState: any, formData: FormData) {
 
   if (password.length < 6) {
     return {
+      passwordError: "Password minimal 6 karakter",
       values: { email, password },
     };
   }

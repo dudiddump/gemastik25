@@ -19,7 +19,7 @@ export default function FormInputPassword({
   };
 
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-2 mb-2">
       <label className="text-sm text-gray-600">{label}</label>
 
       <div className="flex items-center gap-2 px-3 py-2 border border-gray-300 rounded-md focus-within:ring-2 focus-within:ring-[#55daa9] transition">
