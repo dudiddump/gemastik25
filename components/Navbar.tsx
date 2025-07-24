@@ -7,11 +7,10 @@ import ThemeToggleButton from "./SwitchThemeButton";
 
 export default function Navbar() {
   return (
-    <div className=" dark:bg-black">
-      <nav className="py-6 flex items-center justify-between 2xl:px-20 px-5 z-10 container mx-auto">
+    <div className=" dark:bg-black fixed top-0 right-0 left-0">
+      <nav className="py-6 flex items-center justify-between xl:px-20 px-5 z-10 container mx-auto">
         {/* logo */}
         <Logo />
-
         {/* menu list */}
         <MenuList />
 
