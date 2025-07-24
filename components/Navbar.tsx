@@ -25,7 +25,7 @@ export default function Navbar() {
 
 
         {/* mobile close open button */}
-        <div className="flex gap-3" >
+        <div className="flex gap-3 lg:hidden" >
           <ThemeToggleButton className="lg:hidden block" />
           <OpenCloseButton style={{ zIndex: 999 }} />
           </div>
