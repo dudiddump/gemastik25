@@ -6,21 +6,20 @@ export async function login(prevState: any, formData: FormData) {
 
   if (!email || !password) {
     return {
-      message: "Email dan password wajib diisi.",
+      emailError: "Email tidak boleh kosong",
+      passwordError: "Password tidak boleh kosong",
       values: { email, password },
     };
   }
 
   if (!email.includes("@")) {
     return {
-      message: "Format email tidak valid.",
       values: { email, password },
     };
   }
 
   if (password.length < 6) {
     return {
-      message: "Password minimal 6 karakter.",
       values: { email, password },
     };
   }
