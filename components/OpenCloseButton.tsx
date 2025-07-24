@@ -1,12 +1,15 @@
 "use client";
 
 import { useToggleStore } from "@/stores/useToggleStores";
+interface Props {
+  style?: React.CSSProperties;
+}
 
-export default function OpenCloseButton() {
+export default function OpenCloseButton({style}   : Props) {
   const { isOpen, toggleOpen } = useToggleStore();
 
   return (
-    <div className="lg:hidden block">
+    <div className="lg:hidden block" style={style}>
       <div
         onClick={toggleOpen}
         className="cursor-pointer p-3 rounded-md transition-all ease-in w-10 h-10 flex items-center justify-center"

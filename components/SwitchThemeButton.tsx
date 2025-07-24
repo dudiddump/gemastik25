@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { Moon, Sun } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 
-export default function ThemeToggleButton() {
+export default function ThemeToggleButton({className} : {className? : string}) {
   const [theme, setTheme] = useState<"light" | "dark">("light");
 
   useEffect(() => {
@@ -37,7 +37,7 @@ export default function ThemeToggleButton() {
   return (
     <button
       onClick={toggleTheme}
-      className="p-2 rounded-full transition-colors bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 cursor-pointer"
+      className={`w-10 h-10 p-2 rounded-full transition-colors bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 cursor-pointer ${className}`}
       aria-label="Toggle Theme"
     >
       <AnimatePresence mode="wait" initial={false}>
@@ -47,6 +47,7 @@ export default function ThemeToggleButton() {
           animate={{ rotate: 0, opacity: 1 }}
           exit={{ rotate: 90, opacity: 0 }}
           transition={{ duration: 0.3 }}
+          className="flex items-center justify-center"
         >
           {theme === "dark" ? (
             <Sun className="w-5 h-5 text-yellow-400" />

@@ -14,17 +14,24 @@ export default function Navbar() {
         {/* menu list */}
         <MenuList />
 
-        {/* switch theme */}
-        <ThemeToggleButton />
+        <div className="flex gap-3  ">
+          {/* switch theme */}
+          <ThemeToggleButton className="hidden lg:inline" />
 
-        {/* login */}
-        <LoginButton className="hidden lg:block" />
+          {/* login */}
+          <LoginButton className="hidden lg:block" />
+        </div>
 
-        {/* open Close Button */}
-        <OpenCloseButton />
+
+
+        {/* mobile close open button */}
+        <div className="flex gap-3" >
+          <ThemeToggleButton className="lg:hidden block" />
+          <OpenCloseButton style={{ zIndex: 999 }} />
+          </div>
       </nav>
 
-      <div>
+      <div className="flex gap-3">
         <MobileNav />
       </div>
     </div>
