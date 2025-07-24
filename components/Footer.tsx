@@ -1,0 +1,77 @@
+import { Instagram, Twitter, Mail, Phone, MapPin, ShieldCheck, CheckCircle, Heart } from 'lucide-react';
+import Link from 'next/link';
+
+const Footer = () => {
+  const footerLinks = {
+    Platform: [{ name: 'Tentang ReMoney', href: '#' }, 
+        { name: 'Cara Kerja', href: '#' }, 
+        { name: 'Testimoni', href: '#' }, 
+        { name: 'FAQ', href: '#' }],
+    Fitur: [{ name: 'Simulasi Investasi', href: '#' }, 
+        { name: 'Challenge Harian', href: '#' }, 
+        { name: 'Forum Komunitas', href: '#' }, 
+        { name: 'Edukasi Finansial', href: '#' }],
+    Dukungan: [{ name: 'Pusat Bantuan', href: '#' }, 
+        { name: 'Hubungi Kami', href: '#' }, 
+        { name: 'Konsultasi Gratis', href: '#' }, 
+        { name: 'Crisis Hotline', href: '#' }],
+    Legal: [{ name: 'Kebijakan Privasi', href: '#' }, 
+        { name: 'Syarat & Ketentuan', href: '#' }, 
+        { name: 'Keamanan Data', href: '#' }, 
+        { name: 'Disclaimer', href: '#' }],
+  };
+
+  return (
+    <footer className="mt-5 border-t">
+      <div className="max-w-7xl mx-auto py-5 px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
+          <div className="lg:col-span-2">
+            <h3 className="text-2xl font-bold text-green-600">ReMoney</h3>
+            <p className="mt-2 text-gray-500">Platform pertama di Indonesia yang membantu generasi muda berhenti dari kebiasaan judi online dan mengalihkannya ke investasi yang menguntungkan.</p>
+            <div className="mt-2 space-y-2 text-gray-600">
+              <p className="flex items-center"><Mail className="h-5 w-5 mr-2" /> hello@remoney.id</p>
+              <p className="flex items-center"><Phone className="h-5 w-5 mr-2" /> +62 21 1234 5678</p>
+              <p className="flex items-center"><MapPin className="h-5 w-5 mr-2" /> Jakarta, Indonesia</p>
+            </div>
+            <div className="flex space-x-4 mt-5">
+              <a href="#" className="text-gray-400 hover:text-gray-600"><Instagram /></a>
+              <a href="#" className="text-gray-400 hover:text-gray-600"><Twitter /></a>
+            </div>
+          </div>
+          
+          {Object.entries(footerLinks).map(([title, links]) => (
+            <div key={title}>
+              <h4 className="font-bold text-gray-900">{title}</h4>
+              <ul className="mt-1 space-y-2">
+                {links.map(link => <li key={link.name}><a href={link.href} className="text-gray-500 hover:text-gray-800">{link.name}</a></li>)}
+              </ul>
+            </div>
+          ))}
+        </div>
+        
+        <div className="mt-10 p-5 bg-red-50 border border-red-300 rounded-lg flex flex-col sm:flex-row justify-between items-center">
+          <div className="flex items-center">
+            <ShieldCheck className="h-10 w-10 text-red-500" />
+            <div className="ml-4">
+              <h4 className="font-bold text-red-800">Butuh Bantuan Darurat?</h4>
+              <p className="text-red-700">Tim dukungan kami siap membantu 24/7 untuk krisis kecanduan judi.</p>
+            </div>
+          </div>
+          <a href="tel:119" className="mt-3 sm:mt-0 px-5 py-2 bg-red-500 text-white font-bold rounded-lg hover:bg-red-600">Crisis Hotline: 119</a>
+        </div>
+      </div>
+      
+      <div className="bg-gray-50">
+        <div className="py-4 px-4 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+            <p>&copy;2025 ReMoney. Made with <Heart className="inline h-4 w-4 text-red-500" /> for Indonesian Gen Z & Millennials</p>
+            <div className="flex space-x-4 mt-4 md:mt-0">
+                <p className="flex items-center"><ShieldCheck className="h-4 w-4 mr-1 text-green-400" /> Data Aman & Terenkripsi</p>
+                <p className="flex items-center"><CheckCircle className="h-4 w-4 mr-1 text-green-400" /> Terdaftar OJK</p>
+            </div>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
