@@ -45,10 +45,14 @@ export default function LoginForm() {
       </div>
 
       <div>
-        <p className="text-end text-sm text-primary my-3 font-semibold">Lupa Password?</p>
+        <p className="text-end text-sm text-primary my-3 font-semibold">
+          Lupa Password?
+        </p>
       </div>
 
-      <Button className="mt-1 text-white w-full bg-primary font-semibold">Login</Button>
+      <Button className="mt-1 text-white w-full bg-primary font-semibold">
+        Login
+      </Button>
     </form>
   );
 }
