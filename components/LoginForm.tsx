@@ -7,6 +7,7 @@ import Button from "@/components/Button";
 import AlertText from "@/components/AlertText";
 import { useActionState } from "react";
 import { login } from "@/app/(auth)/login/actions";
+import Link from "next/link";
 
 const initialState = {
   emailError: "",
@@ -46,11 +47,13 @@ export default function LoginForm() {
 
       <div>
         <p className="text-end text-sm text-primary my-3 font-semibold">
-          Lupa Password?
+         <Link href="/lupa-password">
+           Lupa Password?
+         </Link>
         </p>
       </div>
 
-      <Button className="mt-1 text-white w-full bg-primary font-semibold">
+      <Button className="mt-1 text-white w-full bg-primary font-semibold ">
         Login
       </Button>
     </form>
