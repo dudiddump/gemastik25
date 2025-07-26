@@ -7,13 +7,13 @@ import Simulasi from "@/components/Simulasi";
 
 export default function Home() {
   return (
-    <ResponsiveContainer>
+    <>
       <Hero />
       <Stats />
       <Features />
       <CTA />
       <Simulasi />
       <Footer />
-    </ResponsiveContainer>
+    </>
   );
 }
