@@ -34,12 +34,12 @@ export default function FormInputPassword({
         />
         {showPassword ? (
           <Eye
-            className="w-4 h-4 text-gray-800 cursor-pointer"
+            className="w-4 h-4 text-gray-800 cursor-pointer dark:text-gray-400"
             onClick={handleClick}
           />
         ) : (
           <EyeOff
-            className="w-4 h-4 text-gray-800 cursor-pointer"
+            className="w-4 h-4 text-gray-800 cursor-pointer dark:text-gray-400"
             onClick={handleClick}
           />
         )}
