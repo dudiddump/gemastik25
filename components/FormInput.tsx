@@ -26,7 +26,7 @@ export default function FormInput({
           type={type}
           autoComplete={autoComplete}
           placeholder={placeholder}
-          className="w-full outline-none text-sm text-gray-800 bg-transparent"
+          className="w-full outline-none text-sm text-gray-800 bg-transparent dark:text-gray-400"
           required
           defaultValue={defaultValue}
         />

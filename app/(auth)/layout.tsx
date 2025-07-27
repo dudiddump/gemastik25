@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 export default function AuthLayout({
@@ -7,8 +8,25 @@ export default function AuthLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const [theme, setTheme] = useState("light");
+
+  useEffect(() => {
+    const storedTheme = localStorage.getItem("theme");
+    const systemPrefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
+
+    if (storedTheme === "dark" || (!storedTheme && systemPrefersDark)) {
+      document.documentElement.classList.add("dark");
+      setTheme("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+      setTheme("light");
+    }
+  }, []);
+
   return (
-    <div className="relative h-screen w-screen flex justify-center items-center bg-white overflow-hidden">
+    <div className="relative h-screen w-screen flex justify-center items-center bg-white overflow-hidden dark:bg-gray-800">
       <motion.div
         animate={{ y: [0, 20, 0] }}
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}

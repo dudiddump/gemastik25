@@ -28,7 +28,7 @@ export default function LoginForm() {
           label="Email"
           placeholder="Isi Email"
           autoComplete="off"
-          icon={<Mail className="w-4 h-4 text-gray-800" />}
+          icon={<Mail className="w-4 h-4 text-gray-800 dark:text-gray-400" />}
           name="email"
           defaultValue={state?.values?.email}
         />
@@ -47,13 +47,11 @@ export default function LoginForm() {
 
       <div>
         <p className="text-end text-sm text-primary my-3 font-semibold">
-         <Link href="/lupa-password">
-           Lupa Password?
-         </Link>
+          <Link href="/lupa-password">Lupa Password?</Link>
         </p>
       </div>
 
-      <Button className="mt-1 text-white w-full bg-primary font-semibold ">
+      <Button className="mt-1 text-white w-full bg-primary font-semibold dark:text-gray-900">
         Login
       </Button>
     </form>

@@ -8,12 +8,10 @@ import { User } from "lucide-react";
 import { Mail } from "lucide-react";
 import Link from "next/link";
 
-
-
 export default function register() {
   return (
     <div className="px-5 md:px-0">
-      <div className="relative z-10 bg-white shadow-lg p-10 rounded-xl max-w-md w-full">
+      <div className="relative z-10 bg-white shadow-lg p-10 rounded-xl max-w-md w-full dark:bg-gray-900">
         <AuthHeader
           title="Mulai Perjalanan Finansial Sehatmu!"
           subtitle="Daftar gratis dan mulai ganti kebiasaan judi jadi investasi"
@@ -27,7 +25,7 @@ export default function register() {
               placeholder="Masukkan nama"
               name="name"
               type="text"
-              icon={<User />}
+              icon={<User className="dark:text-gray-400" />}
             />
           </div>
 
@@ -37,7 +35,7 @@ export default function register() {
               placeholder="Masukkan email"
               name="email"
               type="email"
-              icon={<Mail />}
+              icon={<Mail className="dark:text-gray-400" />}
             />
           </div>
 
@@ -58,12 +56,12 @@ export default function register() {
             />
           </div>
 
-          <Button className="w-full bg-primary font-semibold mt-5 text-white">
+          <Button className="w-full bg-primary font-semibold mt-5 text-white dark:text-gray-800">
             Register
           </Button>
         </form>
 
-        <p className="text-gray-600 text-sm mt-5 text-center">
+        <p className="text-gray-600 text-sm mt-5 text-center dark:text-gray-400">
           Sudah punya akun?
           <span className="text-primary font-semibold">
             {" "}

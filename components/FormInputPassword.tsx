@@ -23,12 +23,12 @@ export default function FormInputPassword({
       <label className="text-sm text-gray-600">{label}</label>
 
       <div className="flex items-center gap-2 px-3 py-2 border border-gray-300 rounded-md focus-within:ring-2 focus-within:ring-[#55daa9] transition">
-        <Lock className="w-4 h-4 text-gray-800" />
+        <Lock className="w-4 h-4 text-gray-400" />
         <input
           type={showPassword ? "text" : "password"}
           autoComplete={autoComplete}
           placeholder={placeholder}
-          className="w-full outline-none text-sm text-gray-800 bg-transparent"
+          className="w-full outline-none text-sm text-gray-800 bg-transparent dark:text-gray-400"
           required
           name={name}
         />
