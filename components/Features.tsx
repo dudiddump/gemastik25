@@ -1,3 +1,4 @@
+import ResponsiveContainer from "@/components/ResponsiveContainer";
 import { ArrowRightLeft, Trophy, Calculator, BookOpen, MessageSquare, LineChart, Ribbon, Users } from 'lucide-react';
 
 const featureList = [
@@ -13,11 +14,13 @@ const featureList = [
 
 const Features = () => {
   return (
-    <section className="mt-5 py-10">
-      <div className="text-center max-w-3xl mx-auto">
-        <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">Kenapa ReMoney Beda?</h2>
-        <p className="mt-2 text-lg text-gray-600">Kami nggak cuma ngasih teori, tapi bantuin kamu dengan tools praktis dan komunitas yang supportive buat benar-benar berubah dari kebiasaan judol ke investasi sehat.</p>
-      </div>
+    <ResponsiveContainer>
+      <section className="mt-10">
+        <div className="text-center max-w-3xl mx-auto">
+          <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">Kenapa ReMoney Beda?</h2>
+          <p className="mt-2 text-lg text-gray-600">Kami nggak cuma ngasih teori, tapi bantuin kamu dengan tools praktis dan komunitas yang supportive buat benar-benar berubah dari kebiasaan judol ke investasi sehat.</p>
+        </div>
+      </section>
       <div className="mt-5 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
         {featureList.map((feature) => (
           <div key={feature.title} className="p-6 bg-white rounded-xl shadow-lg hover:shadow-green-100 hover:-translate-y-1 transition-all duration-300">
@@ -29,7 +32,7 @@ const Features = () => {
           </div>
         ))}
       </div>
-    </section>
+    </ResponsiveContainer>
   );
 };
 
