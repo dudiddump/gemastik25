@@ -15,19 +15,22 @@ export default function MenuList() {
         <p>Home</p>
       </li>
 
-      <li className="text-gray-600 cursor-pointer flex items-center gap-2 hover:text-black hover:bg-gray-100 p-2 font-semibold">
+      <li className="text-gray-600 cursor-pointer flex items-center rounded-md gap-2 hover:text-black hover:bg-gray-100 p-2 font-semibold">
         <TrendingUp className="inline-flex" />
         <p>Simulasi</p>
       </li>
-      <li className="text-gray-600 cursor-pointer flex items-center gap-2 hover:text-black hover:bg-gray-100 p-2 font-semibold">
+
+      <li className="text-gray-600 cursor-pointer flex items-center rounded-md gap-2 hover:text-black hover:bg-gray-100 p-2 font-semibold">
         <BookOpen className="inline-flex" />
         <p>Investasi</p>
       </li>
-      <li className="text-gray-600 cursor-pointer flex items-center gap-2 hover:text-black hover:bg-gray-100 p-2 font-semibold">
+
+      <li className="text-gray-600 cursor-pointer flex items-center rounded-md gap-2 hover:text-black hover:bg-gray-100 p-2 font-semibold">
         <Trophy className="inline-flex" />
         <p>Dashboard</p>
       </li>
-      <li className="text-gray-600 cursor-pointer flex items-center gap-2 hover:text-black hover:bg-gray-100 p-2 font-semibold">
+
+      <li className="text-gray-600 cursor-pointer flex items-center rounded-md gap-2 hover:text-black hover:bg-gray-100 p-2 font-semibold">
         <MessageCircle className="inline-flex" />
         <p>Forum</p>
       </li>
