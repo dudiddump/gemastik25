@@ -4,7 +4,11 @@ import { useEffect, useState } from "react";
 import { Moon, Sun } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 
-export default function ThemeToggleButton({className} : {className? : string}) {
+export default function ThemeToggleButton({
+  className,
+}: {
+  className?: string;
+}) {
   const [theme, setTheme] = useState<"light" | "dark">("light");
 
   useEffect(() => {

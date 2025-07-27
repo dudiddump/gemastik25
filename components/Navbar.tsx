@@ -29,6 +29,7 @@ export default function Navbar() {
         </div>
       </nav>
 
+      {/* mobile nav */}
       <div className="flex gap-3">
         <MobileNav />
       </div>

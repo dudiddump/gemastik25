@@ -16,8 +16,8 @@ export default function OpenCloseButton({style}   : Props) {
       >
         {isOpen ? (
           <div className="relative w-5 h-5">
-            <span className="absolute w-6 h-0.5 bg-black rotate-45 top-1/2 left-0"></span>
-            <span className="absolute w-6 h-0.5 bg-black -rotate-45 top-1/2 left-0"></span>
+            <span className="absolute w-6 h-0.5 bg-black rotate-45 top-1/2 left-0 dark:bg-white"></span>
+            <span className="absolute w-6 h-0.5 bg-black -rotate-45 top-1/2 left-0 dark:bg-white"></span>
           </div>
         ) : (
           <div className="space-y-1 bg-primary p-2 rounded-md">

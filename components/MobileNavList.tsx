@@ -1,6 +1,14 @@
 "use client";
+
 import LoginButton from "./LoginButton";
 import { useToggleStore } from "@/stores/useToggleStores";
+import {
+  Target,
+  TrendingUp,
+  BookOpen,
+  Trophy,
+  MessageCircle,
+} from "lucide-react";
 
 export default function MobileNavList() {
   const { isOpen } = useToggleStore();
@@ -18,17 +26,42 @@ export default function MobileNavList() {
       {/* Sidebar Nav */}
       <div
         className={`
-          fixed top-0 right-0 h-full w-4/5 bg-white px-5 py-4 z-50 transform transition-transform duration-300 ease-in-out
+          fixed top-0 right-0 h-full w-4/5 bg-white dark:bg-gray-900 px-5 py-4 z-50 transform transition-transform duration-300 ease-in-out
           ${isOpen ? "translate-x-0" : "translate-x-full"}
           lg:hidden
         `}
       >
         <ul className="flex flex-col gap-4 mt-4">
-          <li className="text-gray-600 cursor-pointer">Home</li>
-          <li className="text-gray-600 cursor-pointer">Simulasi</li>
-          <li className="text-gray-600 cursor-pointer">Investasi</li>
-          <li className="text-gray-600 cursor-pointer">Dashboard</li>
-          <li className="text-gray-600 cursor-pointer">Forum</li>
+          <li className="cursor-pointer font-semibold text-primary">
+            <div className="flex items-center gap-2">
+              <Target size={20} />
+              <p>Home</p>
+            </div>
+          </li>
+          <li className="text-gray-600 cursor-pointer font-semibold">
+            <div className="flex items-center gap-2">
+              <BookOpen size={20} />
+              <p>Simulasi</p>
+            </div>
+          </li>
+          <li className="text-gray-600 cursor-pointer font-semibold">
+            <div className="flex items-center gap-2">
+              <TrendingUp size={20} />
+              <p>Investasi</p>
+            </div>
+          </li>
+          <li className="text-gray-600 cursor-pointer font-semibold">
+            <div className="flex items-center gap-2">
+              <Trophy size={20} />
+              <p>Dashboard</p>
+            </div>
+          </li>
+          <li className="text-gray-600 cursor-pointer font-semibold">
+            <div className="flex items-center gap-2">
+              <MessageCircle size={20} />
+              <p>Forum</p>
+            </div>
+          </li>
         </ul>
 
         <LoginButton className="lg:hidden mt-5 text-center" />
