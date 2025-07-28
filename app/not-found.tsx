@@ -1,10 +1,12 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import ResponsiveContainer from "@/components/ResponsiveContainer";
+import ClientThemeHandler from "@/components/ClientThemeHandler";
 
 export default function NotFound() {
   return (
     <section className="h-screen bg-green-50 dark:bg-gray-900 flex items-center justify-center">
+      <ClientThemeHandler />
       <ResponsiveContainer>
         <div className="mt-10 flex flex-col items-center text-center">
           <h1 className="text-6xl font-extrabold text-primary mb-4">404</h1>
