@@ -31,11 +31,13 @@ export default function ThemeToggleButton({
     setTheme(newTheme);
     localStorage.setItem("theme", newTheme);
 
-    if (newTheme === "dark") {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
+    setTimeout(() => {
+      if (newTheme === "dark") {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    }, 250);
   };
 
   return (
