@@ -5,29 +5,41 @@ import {
   Trophy,
   MessageCircle,
 } from "lucide-react";
+import Link from "next/link";
 
 export default function MenuList() {
   return (
     <ul className={`lg:flex lg:gap-13 hidden`}>
       {/* active class */}
-      <li className="cursor-pointer flex items-center gap-2 p-2 font-semibold text-primary">
-        <Target className="inline-flex" size={20} />
-        <p>Home</p>
+      <li className=" p-2 font-semibold text-primary">
+        <Link href="/" className="cursor-pointer flex items-center gap-2">
+          <Target className="inline-flex" size={20} />
+          <p>Home</p>
+        </Link>
       </li>
 
       <li className="text-gray-600 cursor-pointer flex items-center rounded-md gap-2 hover:text-black hover:bg-gray-100 p-2 font-semibold">
-        <TrendingUp className="inline-flex" />
-        <p>Simulasi</p>
+        <Link href="/" className="cursor-pointer flex items-center gap-2">
+          <TrendingUp className="inline-flex" />
+          <p>Simulasi</p>
+        </Link>
       </li>
 
       <li className="text-gray-600 cursor-pointer flex items-center rounded-md gap-2 hover:text-black hover:bg-gray-100 p-2 font-semibold">
-        <BookOpen className="inline-flex" />
-        <p>Investasi</p>
+        <Link
+          href="/investasi"
+          className="cursor-pointer flex items-center gap-2"
+        >
+          <BookOpen className="inline-flex" />
+          <p>Investasi</p>
+        </Link>
       </li>
 
       <li className="text-gray-600 cursor-pointer flex items-center rounded-md gap-2 hover:text-black hover:bg-gray-100 p-2 font-semibold">
-        <Trophy className="inline-flex" />
-        <p>Dashboard</p>
+        <Link href="/dashboard" className="cursor-pointer flex items-center gap-2">
+          <Trophy className="inline-flex" />
+          <p>Dashboard</p>
+        </Link>
       </li>
 
       <li className="text-gray-600 cursor-pointer flex items-center rounded-md gap-2 hover:text-black hover:bg-gray-100 p-2 font-semibold">
