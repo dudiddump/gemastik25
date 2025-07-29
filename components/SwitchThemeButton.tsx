@@ -56,9 +56,9 @@ export default function ThemeToggleButton({
           className="flex items-center justify-center"
         >
           {theme === "dark" ? (
-            <Sun className="w-5 h-5 text-yellow-400" />
+            <Moon className="w-5 h-5 text-yellow-400" />
           ) : (
-            <Moon className="w-5 h-5 text-gray-800" />
+            <Sun className="w-5 h-5 text-gray-800" />
           )}
         </motion.div>
       </AnimatePresence>
