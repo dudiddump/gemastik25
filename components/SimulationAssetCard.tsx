@@ -11,7 +11,7 @@ interface InvestmentOption {
   description: string;
   riskLevel: RiskLevel;
   expectedReturn: number;
-  minInvestment: string;
+  minInvestment: number;
   keuntungan: string[];
   perhatian: string[];
 }

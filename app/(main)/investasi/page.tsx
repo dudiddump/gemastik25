@@ -2,10 +2,18 @@ import InvestmentResult from "@/components/InvestmentResult";
 import InvestmentSimulator from "@/components/InvestmentSimulator";
 import ResponsiveContainer from "@/components/ResponsiveContainer";
 import SimmulationAssetCard from "@/components/SimulationAssetCard";
+import rawData from "@/public/data/investmentOptions.json";
 
 export default async function Page() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/data/investmentOptions.json`);
-  const data = await res.json();
+  const investmentOptions = rawData as {
+    name: string;
+    description: string;
+    riskLevel: "Low" | "Medium" | "High";
+    expectedReturn: number;
+    minInvestment: number;
+    keuntungan: string[];
+    perhatian: string[];
+  }[];
 
   return (
     <div className="dark:bg-gray-800 h-screen ">
@@ -29,7 +37,7 @@ export default async function Page() {
 
         <div className="mt-10">
           <h1 className="text-2xl font-semibold">Pilih Produk Investasi</h1>
-          <SimmulationAssetCard data={data} />
+          <SimmulationAssetCard data={investmentOptions} />
         </div>
       </ResponsiveContainer>
     </div>
