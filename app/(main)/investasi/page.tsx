@@ -4,7 +4,7 @@ import ResponsiveContainer from "@/components/ResponsiveContainer";
 import SimmulationAssetCard from "@/components/SimulationAssetCard";
 
 export default async function Page() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}data/investmentOptions.json`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/data/investmentOptions.json`);
   const data = await res.json();
 
   return (
