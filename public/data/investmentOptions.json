@@ -1,0 +1,63 @@
+[
+  {
+    "name": "Reksadana Pasar Uang",
+    "description": "Investasi aman alat likuiditas tinggi, cocok untuk dana darurat dan pemula",
+    "riskLevel": "Low",
+    "expectedReturn": 0.055,
+    "minInvestment": 10000,
+    "keuntungan": [
+      "Risiko rendah",
+      "Bisa dicairkan kapan saja",
+      "Cocok untuk dana darurat"
+    ],
+    "perhatian": [
+      "Return relatif kecil",
+      "Terpengaruh inflasi dan perubahan suku bunga BI"
+    ]
+  },
+  {
+    "name": "Reksadana Pendapatan Tetap (Fixed Income)",
+    "description": "Investasi obligasi jangka menengah untuk stabilitas return",
+    "riskLevel": "Medium",
+    "expectedReturn": 0.08,
+    "minInvestment": 25000,
+    "keuntungan": [
+      "Return lebih besar dibanding pasar uang",
+      "Stabil dan cocok untuk jangka menengah"
+    ],
+    "perhatian": [
+      "Sensitif terhadap perubahan suku bunga BI",
+      "Return bervariasi tiap tahun"
+    ]
+  },
+  {
+    "name": "Reksadana Saham",
+    "description": "Investasi saham blue-chip, cocok untuk investor siap volatilitas tinggi",
+    "riskLevel": "High",
+    "expectedReturn": 0.16,
+    "minInvestment": 50000,
+    "keuntungan": [
+      "Potensi return tertinggi",
+      "Diversifikasi saham blue‑chip"
+    ],
+    "perhatian": [
+      "Volatilitas tinggi dan fluktuatif",
+      "Perlu holding period 3‑5 tahun untuk hasil optimal"
+    ]
+  },
+  {
+    "name": "Reksadana Campuran (Balanced Fund)",
+    "description": "Kombinasi saham & obligasi untuk keseimbangan risiko & return",
+    "riskLevel": "Medium",
+    "expectedReturn": 0.08,
+    "minInvestment": 25000,
+    "keuntungan": [
+      "Return lebih baik dari pasar uang",
+      "Diversifikasi otomatis antara saham & obligasi"
+    ],
+    "perhatian": [
+      "Harga bisa fluktuatif moderate",
+      "Ideal untuk holding period minimal 1 tahun"
+    ]
+  }
+]
