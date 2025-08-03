@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { CheckCircle, AlertTriangle } from "lucide-react";
 import Button from "./Button";
@@ -30,16 +30,15 @@ export default function SimmulationAssetCard({
   };
 
   return (
-    <div className="grid md:grid-cols-2 gap-10 mt-5">
+    <div className="grid md:grid-cols-2 gap-10  mt-5">
       {data.map((item, i) => (
         <div
           key={i}
-          className="border border-gray-200 rounded-xl p-5 shadow-sm hover:shadow-md transition-all"
+          className="border border-gray-200 dark:border-none rounded-xl dark:bg-gray-900 p-5 shadow-sm hover:shadow-md transition-all"
         >
-          {/* Header */}
           <div className="flex justify-between items-start">
             <div>
-              <h2 className="text-lg font-semibold text-gray-800">
+              <h2 className="text-lg font-semibold text-gray-800 dark:text-white">
                 {item.name}
               </h2>
               <p className="text-sm text-gray-500"> {item.description}</p>
@@ -53,9 +52,8 @@ export default function SimmulationAssetCard({
             </span>
           </div>
 
-          {/* Info Boxes */}
           <div className="grid grid-cols-2 gap-2 my-4">
-            <div className="bg-green-50 p-3 rounded-md text-center">
+            <div className="bg-green-50 dark:bg-gray-800 p-3 rounded-md text-center">
               <p className="text-sm text-gray-500">Expected Return</p>
               <p className="font-bold text-green-600 text-md">
                 {new Intl.NumberFormat("id-ID", {
@@ -64,7 +62,7 @@ export default function SimmulationAssetCard({
                 % / year
               </p>
             </div>
-            <div className="bg-green-50 p-3 rounded-md text-center">
+            <div className="bg-green-50 dark:bg-gray-800 p-3 rounded-md text-center">
               <p className="text-sm text-gray-500">Min. Investment</p>
               <p className="font-bold text-green-600 text-md">
                 {item.minInvestment}
@@ -77,7 +75,7 @@ export default function SimmulationAssetCard({
             <h4 className="text-green-600 font-semibold flex items-center gap-1 text-sm">
               <CheckCircle size={16} /> Keuntungan:
             </h4>
-            <ul className="list-disc list-inside text-sm text-gray-700">
+            <ul className="list-disc list-inside text-sm text-gray-700 dark:text-gray-400">
               {item.keuntungan.map((point, idx) => (
                 <li key={idx}>{point}</li>
               ))}
@@ -89,7 +87,7 @@ export default function SimmulationAssetCard({
             <h4 className="text-orange-500 font-semibold flex items-center gap-1 text-sm">
               <AlertTriangle size={16} /> Perhatikan:
             </h4>
-            <ul className="list-disc list-inside text-sm text-gray-700">
+            <ul className="list-disc list-inside text-sm text-gray-700 dark:text-gray-400">
               {item.perhatian.map((point, idx) => (
                 <li key={idx}>{point}</li>
               ))}
@@ -98,8 +96,11 @@ export default function SimmulationAssetCard({
 
           {/* Button */}
           <Button
-            className="w-full text-sm font-medium text-gray-600 border border-gray-300 rounded-md py-2 hover:bg-gray-50 transition"
-            onClick={() => setSelectedInvestments(item)}
+            className={`w-full text-sm font-medium text-gray-600 border border-gray-300 rounded-md py-2 hover:bg-primary hover:text-black transition ease-in duration-200
+            dark:text-gray-400 dark:border-primary`}
+            onClick={() => {
+              setSelectedInvestments(item);
+            }}
           >
             Select for Simulation
           </Button>
