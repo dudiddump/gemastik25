@@ -18,14 +18,14 @@ export default function MenuList() {
         </Link>
       </li>
 
-      <li className="text-gray-600 cursor-pointer flex items-center rounded-md gap-2 hover:text-black hover:bg-gray-100 p-2 font-semibold">
+      <li className="text-gray-600 cursor-pointer flex items-center rounded-md gap-2 hover:text-white hover:bg-gray-800 p-2 font-semibold">
         <Link href="/" className="cursor-pointer flex items-center gap-2">
           <TrendingUp className="inline-flex" />
           <p>Simulasi</p>
         </Link>
       </li>
 
-      <li className="text-gray-600 cursor-pointer flex items-center rounded-md gap-2 hover:text-black hover:bg-gray-100 p-2 font-semibold">
+      <li className="text-gray-600 cursor-pointer flex items-center rounded-md gap-2 hover:text-white hover:bg-gray-800 p-2 font-semibold">
         <Link
           href="/investasi"
           className="cursor-pointer flex items-center gap-2"
@@ -35,14 +35,14 @@ export default function MenuList() {
         </Link>
       </li>
 
-      <li className="text-gray-600 cursor-pointer flex items-center rounded-md gap-2 hover:text-black hover:bg-gray-100 p-2 font-semibold">
+      <li className="text-gray-600 cursor-pointer flex items-center rounded-md gap-2 hover:text-white hover:bg-gray-800 p-2 font-semibold">
         <Link href="/dashboard" className="cursor-pointer flex items-center gap-2">
           <Trophy className="inline-flex" />
           <p>Dashboard</p>
         </Link>
       </li>
 
-      <li className="text-gray-600 cursor-pointer flex items-center rounded-md gap-2 hover:text-black hover:bg-gray-100 p-2 font-semibold">
+      <li className="text-gray-600 cursor-pointer flex items-center rounded-md gap-2 hover:text-white hover:bg-gray-800 p-2 font-semibold">
         <MessageCircle className="inline-flex" />
         <p>Forum</p>
       </li>
