@@ -1,12 +1,8 @@
 "use client";
 
 import AuthHeader from "@/components/AuthHeader";
-import Button from "@/components/Button";
-import FormInput from "@/components/FormInput";
-import FormInputPassword from "@/components/FormInputPassword";
-import { User } from "lucide-react";
-import { Mail } from "lucide-react";
 import Link from "next/link";
+import RegisterForm from "@/components/RegisterForm";
 
 export default function register() {
   return (
@@ -18,48 +14,7 @@ export default function register() {
         />
         <hr className="border border-t border-gray-300 mt-5" />
 
-        <form className="mt-5 space-y-5">
-          <div className="flex flex-col m-0">
-            <FormInput
-              label="Nama"
-              placeholder="Masukkan nama"
-              name="name"
-              type="text"
-              icon={<User className="dark:text-gray-400" />}
-            />
-          </div>
-
-          <div className="flex flex-col mt-2 mb-0">
-            <FormInput
-              label="Email"
-              placeholder="Masukkan email"
-              name="email"
-              type="email"
-              icon={<Mail className="dark:text-gray-400" />}
-            />
-          </div>
-
-          <div className="flex flex-col mt-2 mb-0">
-            <FormInputPassword
-              label="password"
-              placeholder="Masukkan password"
-              name="password"
-            />
-          </div>
-
-          {/* donfirm */}
-          <div className="flex flex-col mt-2 mb-0">
-            <FormInputPassword
-              label="konfirmasi password"
-              placeholder="Masukkan konfirmasi password"
-              name="confirmPassword"
-            />
-          </div>
-
-          <Button className="w-full bg-primary font-semibold mt-5 text-white dark:text-gray-800">
-            Register
-          </Button>
-        </form>
+        <RegisterForm />
 
         <p className="text-gray-600 text-sm mt-5 text-center dark:text-gray-400">
           Sudah punya akun?

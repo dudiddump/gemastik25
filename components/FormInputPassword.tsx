@@ -1,22 +1,12 @@
 import { Lock, Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
 
-export default function FormInputPassword({
-  label,
-  placeholder,
-  autoComplete = "off",
-  name,
-}: {
+interface FormInputPasswordProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label: string;
-  placeholder: string;
-  autoComplete?: string;
-  name: string;
-}) {
-  const [showPassword, setShowPassword] = useState(false);
+}
 
-  const handleClick = () => {
-    setShowPassword(!showPassword);
-  };
+export default function FormInputPassword({ label, ...props }: FormInputPasswordProps) {
+  const [showPassword, setShowPassword] = useState(false);
 
   return (
     <div className="flex flex-col gap-2 mb-2">
@@ -26,21 +16,19 @@ export default function FormInputPassword({
         <Lock className="w-4 h-4 text-gray-400" />
         <input
           type={showPassword ? "text" : "password"}
-          autoComplete={autoComplete}
-          placeholder={placeholder}
           className="w-full outline-none text-sm text-gray-800 bg-transparent dark:text-gray-400"
           required
-          name={name}
+          {...props} // semua props dari luar otomatis masuk
         />
         {showPassword ? (
           <Eye
             className="w-4 h-4 text-gray-800 cursor-pointer dark:text-gray-400"
-            onClick={handleClick}
+            onClick={() => setShowPassword(false)}
           />
         ) : (
           <EyeOff
             className="w-4 h-4 text-gray-800 cursor-pointer dark:text-gray-400"
-            onClick={handleClick}
+            onClick={() => setShowPassword(true)}
           />
         )}
       </div>
