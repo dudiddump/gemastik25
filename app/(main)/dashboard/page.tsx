@@ -1,7 +1,223 @@
-export default function dashboardPage() {
-  return (
-    <div>
-      <h1>Dashboard</h1>
-    </div>
-  );
+"use client";
+import React, { useState, useEffect } from 'react';
+import { User, DollarSign, Flame, CheckSquare, RefreshCw, PlusCircle, BarChart2 } from 'lucide-react';
+
+const ResponsiveContainer = ({ children }: { children: React.ReactNode }) => <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">{children}</div>;
+
+interface LevelCardProps {
+    level: number;
+    currentXp: number;
+    requiredXp: number;
 }
+interface InfoCardProps {
+    title: string;
+    value: string;
+}
+interface ChallengeItemProps {
+    title: string;
+    description: string;
+    xp: number;
+}
+interface FormInputProps {
+    label: string;
+    type: string;
+    placeholder: string;
+    value: string | number;
+    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    name: string;
+}
+interface Transaction {
+    category: string;
+    description: string;
+    amount: string;
+    date: string;
+}
+interface TransactionItemProps extends Transaction {}
+interface FormState {
+    amount: string;
+    category: string;
+    description: string;
+    type: string;
+}
+
+const LevelCard = ({ level, currentXp, requiredXp }: LevelCardProps) => (
+    <div className="bg-gray-900 p-4 rounded-xl border border-gray-800">
+        <div className="flex items-center justify-between text-sm">
+            <p className="font-bold text-white">Level {level}</p>
+            <p className="text-gray-400">{currentXp} / {requiredXp} XP</p>
+        </div>
+        <div className="mt-2 w-full bg-gray-700 rounded-full h-2.5">
+            <div className="bg-green-500 h-2.5 rounded-full" style={{ width: `${(currentXp / requiredXp) * 100}%` }}></div>
+        </div>
+    </div>
+);
+
+const InfoCard = ({ title, value }: InfoCardProps) => (
+    <div className="bg-gray-900 p-4 rounded-xl border border-gray-800 text-center">
+        <p className="text-2xl font-bold text-white">{value}</p>
+        <p className="text-sm text-gray-400 mt-1">{title}</p>
+    </div>
+);
+
+const ChallengeItem = ({ title, description, xp }: ChallengeItemProps) => (
+    <div className="bg-gray-900 p-4 rounded-lg border border-gray-800 flex items-center justify-between">
+        <div>
+            <p className="font-semibold text-white">{title}</p>
+            <p className="text-sm text-gray-400">{description}</p>
+            <p className="text-sm font-bold text-green-400 mt-1">+{xp} XP</p>
+        </div>
+        <button className="p-2 rounded-full bg-gray-700 hover:bg-gray-600">
+            <RefreshCw className="h-5 w-5 text-gray-300" />
+        </button>
+    </div>
+);
+
+const FormInput = ({ label, type, placeholder, value, onChange, name }: FormInputProps) => (
+    <div>
+        <label className="block text-sm font-medium text-gray-400 mb-2">{label}</label>
+        <input
+            type={type}
+            name={name}
+            placeholder={placeholder}
+            value={value}
+            onChange={onChange}
+            className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2 text-white focus:ring-green-500 focus:border-green-500"
+        />
+    </div>
+);
+
+const TransactionItem = ({ category, description, amount, date }: TransactionItemProps) => (
+    <div className="flex items-center justify-between py-3 border-b border-gray-800 last:border-b-0">
+        <div>
+            <p className="font-semibold text-white">{category}</p>
+            <p className="text-sm text-gray-500">{description}</p>
+        </div>
+        <div className="text-right">
+            <p className="font-bold text-green-400">{amount}</p>
+            <p className="text-xs text-gray-500">{date}</p>
+        </div>
+    </div>
+);
+
+const BudgetTracker = () => {
+    const [transactions, setTransactions] = useState<Transaction[]>([
+        { category: "Tabungan", description: "Alih dari budget judi ke tabungan", amount: "Rp 50.000", date: "2024-08-06" },
+    ]);
+    const [formState, setFormState] = useState<FormState>({
+        amount: '',
+        category: '',
+        description: '',
+        type: 'Other'
+    });
+
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+        setFormState(prevState => ({ ...prevState, [name]: value }));
+    };
+
+    const handleAddExpense = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        if (!formState.amount || !formState.category) {
+            alert("Amount and Category are required!");
+            return;
+        }
+        const newTransaction: Transaction = {
+            category: formState.category,
+            description: formState.description || "No description",
+            amount: new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(Number(formState.amount)),
+            date: new Date().toISOString().split('T')[0]
+        };
+        setTransactions([newTransaction, ...transactions]);
+        setFormState({ amount: '', category: '', description: '', type: 'Other' });
+    };
+
+    return (
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
+            <div className="lg:col-span-3 bg-gray-900 p-6 rounded-xl border border-gray-800">
+                <h3 className="flex items-center text-xl font-bold text-white mb-6">
+                    <PlusCircle className="h-6 w-6 mr-3 text-green-400" />
+                    Add Expense
+                </h3>
+                <form onSubmit={handleAddExpense} className="space-y-4">
+                    <FormInput label="Amount (Rp)" type="number" placeholder="50000" name="amount" value={formState.amount} onChange={handleInputChange} />
+                    <FormInput label="Category" type="text" placeholder="Tabungan, Reksadana, etc." name="category" value={formState.category} onChange={handleInputChange} />
+                    <FormInput label="Description (Optional)" type="text" placeholder="Money diverted from gambling" name="description" value={formState.description} onChange={handleInputChange} />
+                    <button type="submit" className="w-full bg-green-500 text-white font-bold py-3 rounded-lg hover:bg-green-600 transition-colors">
+                        Add Expense
+                    </button>
+                </form>
+            </div>
+            <div className="lg:col-span-2 bg-gray-900 p-6 rounded-xl border border-gray-800">
+                <h3 className="flex items-center text-xl font-bold text-white mb-4">
+                    <BarChart2 className="h-6 w-6 mr-3 text-green-400" />
+                    Recent Transactions
+                </h3>
+                <div className="space-y-2">
+                    {transactions.map((tx, index) => <TransactionItem key={index} {...tx} />)}
+                </div>
+            </div>
+        </div>
+    );
+};
+
+const DashboardPage = () => {
+    const [activeTab, setActiveTab] = useState('Challenges');
+    const user = { name: "Champion" };
+
+    return (
+        <div className="bg-gray-950 min-h-screen text-white">
+            <ResponsiveContainer>
+                <main className="py-8 pt-24">
+                    <div className="text-center mb-8">
+                        <span className="inline-block bg-gray-800 text-green-400 text-xs font-semibold px-4 py-1 rounded-full mb-4">
+                            <User className="inline-block h-4 w-4 mr-2" />
+                            Personal Dashboard
+                        </span>
+                        <h1 className="text-4xl font-bold">Selamat datang kembali, <span className="text-green-400">{user.name}!</span></h1>
+                        <p className="text-gray-400 mt-2">Lihat progress harian kamu dan lanjutkan perjalanan menuju kebebasan finansial.</p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                        <LevelCard level={3} currentXp={800} requiredXp={1000} />
+                        <InfoCard title="Total Diselamatkan" value="Rp 2.500.000" />
+                        <InfoCard title="Hari Streak" value="12" />
+                        <InfoCard title="Challenge Selesai" value="6" />
+                    </div>
+
+                    <div>
+                        <div className="flex border-b border-gray-800 mb-6">
+                            <button 
+                                onClick={() => setActiveTab('Challenges')}
+                                className={`px-6 py-3 font-semibold text-sm transition-colors ${activeTab === 'Challenges' ? 'text-green-400 border-b-2 border-green-400' : 'text-gray-500 hover:text-gray-300'}`}
+                            >
+                                Challenges
+                            </button>
+                            <button 
+                                onClick={() => setActiveTab('Budget Tracker')}
+                                className={`px-6 py-3 font-semibold text-sm transition-colors ${activeTab === 'Budget Tracker' ? 'text-green-400 border-b-2 border-green-400' : 'text-gray-500 hover:text-gray-300'}`}
+                            >
+                                Budget Tracker
+                            </button>
+                        </div>
+
+                        <div>
+                            {activeTab === 'Challenges' && (
+                                <div className="space-y-4">
+                                    <h2 className="text-xl font-bold text-white">Daily Challenges</h2>
+                                    <p className="text-gray-400">Complete challenges to earn XP and build healthy financial habits.</p>
+                                    <ChallengeItem title="Hari Bebas Judol" description="Tidak membuka aplikasi judi online hari ini" xp={50} />
+                                    <ChallengeItem title="Alihkan ke Tabungan" description="Masukkan Rp50.000 ke tabungan/investasi" xp={75} />
+                                </div>
+                            )}
+                            {activeTab === 'Budget Tracker' && (
+                                <BudgetTracker />
+                            )}
+                        </div>
+                    </div>
+                </main>
+            </ResponsiveContainer>
+        </div>
+    );
+};
+
+export default DashboardPage;
