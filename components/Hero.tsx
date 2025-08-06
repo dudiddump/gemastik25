@@ -5,23 +5,23 @@ import Image from "next/image";
 
 const Hero = () => {
   return (
-    <section className="h-screen bg-green-50 flex items-center justify-center">
+    <section className="bg-green-50 dark:bg-teal-900 flex items-center justify-center">
       <ResponsiveContainer>
-        <div className="mt-10 flex flex-col lg:flex-row items-center justify-between  gap-5">
+        <div className="pt-20 pb-10 flex flex-col lg:flex-row items-center justify-between  gap-5">
           <div className="flex-1 text-center lg:text-left">
             <span className="inline-block bg-green-100 text-green-800 text-sm font-semibold px-5 py-1 rounded-full mb-5+4">
               Platform Anti-Judol #1 Indonesia
             </span>
 
-            <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">
+            <h1 className="mt-5 text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-green-50 leading-tight">
               Ganti Judol Lo,
               <br />
-              <span className="text-green-600">
+              <span className="text-green-600 dark:text-green-400">
                 Cuan Lebih Slow Tapi Lebih Aman!
               </span>
             </h1>
 
-            <p className="mt-5 text-lg text-gray-600 max-w-xl mx-auto lg:mx-0">
+            <p className="mt-5 text-lg text-gray-600 dark:text-gray-100 max-w-xl mx-auto lg:mx-0">
               Aplikasi pertama di Indonesia yang membantu kamu berhenti dari
               kebiasaan judi online dan mengalihkannya ke investasi yang
               menguntungkan. Mulai perjalanan finansial sehatmu hari ini!
