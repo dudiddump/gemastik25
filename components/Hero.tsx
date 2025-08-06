@@ -7,7 +7,7 @@ const Hero = () => {
   return (
     <section className="bg-green-50 dark:bg-teal-900 flex items-center justify-center">
       <ResponsiveContainer>
-        <div className="pt-20 pb-10 flex flex-col lg:flex-row items-center justify-between  gap-5">
+        <div className="mt-10 pt-20 pb-10 flex flex-col lg:flex-row items-center justify-between  gap-5">
           <div className="flex-1 text-center lg:text-left">
             <span className="inline-block bg-green-100 text-green-800 text-sm font-semibold px-5 py-1 rounded-full mb-5+4">
               Platform Anti-Judol #1 Indonesia
@@ -35,13 +35,13 @@ const Hero = () => {
                 <PlayCircle className="mr-2 h-5 w-5" />
                 Mulai Gantiin Kebiasaan Burukmu
               </Link>
-              <Link
-                href="/simulasi"
-                className="flex items-center justify-center bg-white border border-gray-300 text-gray-800 font-bold py-3 px-6 rounded-lg hover:bg-gray-100 transition-colors duration-300 shadow-lg"
+              <a
+                href="#simulasi"
+                className="flex items-center justify-center bg-white border border-gray-300 text-gray-800 font-bold py-3 px-6 rounded-lg hover:bg-gray-100 transition-colors duration-300 shadow-lg dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-600"
               >
                 <BarChart className="mr-2 h-5 w-5" />
                 Lihat Simulasi Cuan
-              </Link>
+              </a>
             </div>
           </div>
 

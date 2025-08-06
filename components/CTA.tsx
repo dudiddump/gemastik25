@@ -11,7 +11,8 @@ const ResponsiveContainer = ({ children }: { children: React.ReactNode }) => {
 
 const CTA = () => {
   return (
-    <div className="bg-white dark:bg-gray-900 pb-10">
+    <div className="bg-gradient-to-b from-white to-green-50 dark:from-teal-900 dark:to-gray-900 pb-20">
+
       <ResponsiveContainer>
         <section className="text-center">
           <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-4xl">

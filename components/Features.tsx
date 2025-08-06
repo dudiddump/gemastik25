@@ -14,7 +14,7 @@ const featureList = [
 
 const Features = () => {
   return (
-    <div className="bg-white dark:bg-gray-900 pt-1 pb-10">
+    <div className="bg-gradient-to-b from-white to-green-100 dark:from-gray-900 dark:to-teal-900 pt-1 pb-10">
       <ResponsiveContainer>
         <section className="mt-10">
           <div className="text-center max-w-3xl mx-auto">

@@ -7,11 +7,18 @@ import Simulasi from "@/components/Simulasi";
 export default function Home() {
   return (
     <>
-      <Hero />
-      <Stats />
-      <Features />
-      <CTA />
-      <Simulasi />
+      <style>{`
+          html {
+            scroll-behavior: smooth;
+          }
+        `}</style>
+      <main>
+        <Hero />
+        <Stats />
+        <Features />
+        <CTA />
+        <Simulasi />
+      </main>
     </>
   );
 }

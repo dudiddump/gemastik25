@@ -66,7 +66,7 @@ const Simulasi = () => {
   }, [dailySpend]);
 
   return (
-    <section className="bg-green-50 dark:bg-teal-900 pt-5 pb-5">
+    <section id="simulasi" className="bg-gradient-to-b from-green-50 to-green-100 dark:from-gray-900 dark:to-teal-900 pt-15">
       <ResponsiveContainer>
         <div className="max-w-4xl mx-auto pb-10">
           <div className="py-5 text-center">
