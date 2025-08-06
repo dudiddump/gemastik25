@@ -5,13 +5,19 @@ import FormInputPassword from "@/components/FormInputPassword";
 import { Mail } from "lucide-react";
 import Button from "@/components/Button";
 import AlertText from "@/components/AlertText";
-import { useActionState } from "react";
+import { useActionState, useEffect } from "react";
 import { login } from "@/app/(auth)/login/actions";
 import Link from "next/link";
+import { failed } from "@/lib/swal";
+import { success } from "@/lib/swal";
+import { Loading } from "./Loading";
+import { useRouter } from "next/navigation";
 
 const initialState = {
-  emailError: "",
-  passwordError: "",
+  errors: {
+    email: "",
+    password: "",
+  },
   values: {
     email: "",
     password: "",
@@ -20,6 +26,20 @@ const initialState = {
 
 export default function LoginForm() {
   const [state, formAction, pending] = useActionState(login, initialState);
+  const router = useRouter();
+
+  useEffect(() => {
+    if (state?.message) {
+      (async () => {
+        if (state?.message === "Login berhasil") {
+          await success(state.message);
+          router.push("/");
+        } else {
+          await failed(state.message);
+        }
+      })();
+    }
+  }, [state?.message, router]);
 
   return (
     <form className="mt-5 space-y-5" action={formAction}>
@@ -32,7 +52,7 @@ export default function LoginForm() {
           name="email"
           defaultValue={state?.values?.email}
         />
-        <AlertText message={state?.emailError} className="text-red-500" />
+        <AlertText message={state?.errors?.email} className="text-red-500" />
       </div>
 
       <div className="flex flex-col mb-0 mt-2">
@@ -42,7 +62,7 @@ export default function LoginForm() {
           autoComplete="off"
           placeholder="Masukan Password"
         />
-        <AlertText message={state?.passwordError} className="text-red-500" />
+        <AlertText message={state?.errors?.password} className="text-red-500" />
       </div>
 
       <div>
@@ -52,7 +72,7 @@ export default function LoginForm() {
       </div>
 
       <Button className="mt-1 text-white w-full bg-primary font-semibold dark:text-gray-900">
-        Login
+        {pending ? <Loading /> : "Login"}
       </Button>
     </form>
   );
