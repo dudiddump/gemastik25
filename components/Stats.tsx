@@ -1,23 +1,34 @@
+import React from 'react';
+
+const statsData = [
+  { value: '1000+', label: 'User Berhasil' },
+  { value: '50M+', label: 'Uang Diselamatkan' },
+  { value: '95%', label: 'Tingkat Keberhasilan' },
+];
+
+const StatCard = ({ value, label }: { value: string; label: string }) => (
+  <div className="bg-white dark:bg-gray-800 p-5 rounded-lg shadow-md text-center w-full">
+    <p className="text-4xl font-bold text-green-500 dark:text-green-400">{value}</p>
+    <p className="text-gray-600 dark:text-gray-300 mt-1">{label}</p>
+  </div>
+);
+
 const Stats = () => {
-    return (
-        <div className="mt-5 py-5 bg-gray-50 rounded-lg">
-            <div className="flex flex-col md:flex-row justify-around items-center text-center gap-8">
-                <div className="flex flex-col items-center">
-                    <p className="text-4xl font-bold text-green-600">1000+</p>
-                    <p className="text-gray-500 mt-1">User Berhasil</p>
-                </div>
-                <div className="w-px h-12 bg-gray-200 hidden md:block"></div>
-                <div className="flex flex-col items-center">
-                    <p className="text-4xl font-bold text-green-600">50M+</p>
-                    <p className="text-gray-500 mt-1">Uang Diselamatkan</p>
-                </div>
-                <div className="w-px h-12 bg-gray-200 hidden md:block"></div>
-                <div className="flex flex-col items-center">
-                    <p className="text-4xl font-bold text-green-600">95%</p>
-                    <p className="text-gray-500 mt-1">Tingkat Keberhasilan</p>
-                </div>
-            </div>
-        </div>
-    );
+  return (
+    <div className="w-full max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-3">
+        {statsData.map((stat) => (
+          <StatCard key={stat.label} value={stat.value} label={stat.label} />
+        ))}
+    </div>
+  );
 };
-export default Stats;
+
+const App = () => {
+  return (
+    <div className="flex items-center justify-center bg-green-50 dark:bg-teal-900 pb-10">
+       <Stats />
+    </div>
+  )
+}
+
+export default App;
