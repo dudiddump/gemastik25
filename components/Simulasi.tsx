@@ -66,7 +66,7 @@ const Simulasi = () => {
   }, [dailySpend]);
 
   return (
-    <section id="simulasi" className="bg-gradient-to-b from-green-50 to-green-100 dark:from-gray-900 dark:to-teal-900 pt-15">
+    <section id="simulasi" className="bg-gradient-to-b from-white to-green-50 dark:from-gray-900 dark:to-teal-900 pt-15">
       <ResponsiveContainer>
         <div className="max-w-4xl mx-auto pb-10">
           <div className="py-5 text-center">
@@ -91,10 +91,10 @@ const Simulasi = () => {
                 id="daily-spend"
                 value={dailySpend}
                 onChange={(e) => setDailySpend(Number(e.target.value))}
-                className="mt-2 block w-full px-2 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm"
+                className="mt-2 block w-full px-2 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm dark:text-white"
                 placeholder="500000"
               />
-              {results && <p className="mt-1.5 px-1 text-sm text-gray-500 dark:text-gray-400">Per bulan: {results.monthlySpend}</p>}
+              {results && <p className="mt-1.5 px-1 text-sm text-gray-500 dark:text-gray-300">Per bulan: {results.monthlySpend}</p>}
             </div>
           </div>
 
@@ -109,9 +109,9 @@ const Simulasi = () => {
                   <h3 className="ml-4 text-xl font-bold text-red-800 dark:text-red-200">Kalau Lanjut Judi Online</h3>
                 </div>
                 <p className="text-sm text-red-600 dark:text-red-300 mt-1">Estimasi kerugian (95% loss rate)</p>
-                <div className="mt-2 space-y-2">
+                <div className="mt-3">
                   {Object.entries(results.loss).map(([period, value]) => (
-                    <div key={period} className={`flex justify-between items-center p-3 rounded-lg ${period === '1 Tahun' ? 'bg-red-100 dark:bg-red-500/30' : ''}`}>
+                    <div key={period} className={`flex justify-between items-center p-2.5 rounded-lg ${period === '1 Tahun' ? 'bg-red-100 dark:bg-red-500/30' : ''}`}>
                       <span className="font-semibold text-gray-700 dark:text-gray-200">{period}</span>
                       <span className="font-bold text-red-600 dark:text-red-300">-{String(value).replace('Rp', '').trim()}</span>
                     </div>
@@ -134,9 +134,9 @@ const Simulasi = () => {
                   <h3 className="ml-4 text-xl font-bold text-green-800 dark:text-green-200">Kalau Dialihkan ke Investasi</h3>
                 </div>
                 <p className="text-sm text-green-600 dark:text-green-300 mt-1">Estimasi keuntungan (12% return/tahun)</p>
-                <div className="mt-3 space-y-2">
+                <div className="mt-3">
                   {Object.entries(results.investment).map(([period, value]) => (
-                    <div key={period} className={`flex justify-between items-center p-3 rounded-lg ${period === '1 Tahun' ? 'bg-green-100 dark:bg-green-500/30' : ''}`}>
+                    <div key={period} className={`flex justify-between items-center p-2.5 rounded-lg ${period === '1 Tahun' ? 'bg-green-100 dark:bg-green-500/30' : ''}`}>
                       <span className="font-semibold text-gray-700 dark:text-gray-200">{period}</span>
                       <span className="font-bold text-green-600 dark:text-green-300">+{String(value).replace('Rp', '').trim()}</span>
                     </div>
