@@ -14,15 +14,16 @@ const featureList = [
 
 const Features = () => {
   return (
-    <div className="bg-gradient-to-b from-white to-green-100 dark:from-gray-900 dark:to-teal-900 pt-1 pb-10">
+    <div id="features" className="bg-gradient-to-b from-white to-green-50 dark:from-gray-900 dark:to-teal-900 pt-1 pb-10">
+
       <ResponsiveContainer>
-        <section className="mt-10">
+        <section className="pt-15">
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-3xl font-extrabold text-gray-900 dark:text-white sm:text-4xl">Kenapa ReMoney Beda?</h2>
             <p className="mt-2 text-lg text-gray-600 dark:text-gray-100">Kami nggak cuma ngasih teori, tapi bantuin kamu dengan tools praktis dan komunitas yang supportive buat benar-benar berubah dari kebiasaan judol ke investasi sehat.</p>
           </div>
         </section>
-        <div className="mt-5 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
           {featureList.map((feature) => (
             <div key={feature.title} className="p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-green-300 hover:-translate-y-1 transition-all duration-300">
               <div className="mb-4">
