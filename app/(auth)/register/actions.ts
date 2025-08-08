@@ -77,14 +77,12 @@ export default async function register(prevState: any, formData: FormData) {
   }
 
   if (data) {
-    const { data: user, error } = await supabase.from("users").insert({
-      auth_id: data.user?.id,
-      username: result.data.name,
-    }).select();
-
-    console.log(user);
-    console.log(error);
-
+    const { data: user, error } = await supabase
+      .from("users")
+      .upsert({
+        auth_id: data.user?.id,
+        username: result.data.name,
+      })
 
     return {
       message: "Registrasi berhasil, silahkan login",
