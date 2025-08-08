@@ -45,7 +45,6 @@ interface Transaction {
   amount: string;
   date: string;
 }
-interface TransactionItemProps extends Transaction {}
 interface FormState {
   amount: string;
   category: string;
@@ -123,22 +122,16 @@ const FormInput = ({
   </div>
 );
 
-const TransactionItem = ({
-  category,
-  description,
-  amount,
-  date,
-}: TransactionItemProps) => (
-  <div className="flex items-center justify-between py-3 border-b border-gray-800 last:border-b-0">
-    <div>
-      <p className="font-semibold text-white">{category}</p>
-      <p className="text-sm text-gray-500">{description}</p>
+const TransactionItem = ({ 
+  category, 
+  description, 
+  amount, 
+  date 
+}: Transaction) => (
+    <div className="flex items-center justify-between py-3 border-b border-gray-200 dark:border-gray-800 last:border-b-0">
+        <div><p className="font-semibold text-gray-900 dark:text-white">{category}</p><p className="text-sm text-gray-500">{description}</p></div>
+        <div className="text-right"><p className="font-bold text-green-600 dark:text-green-400">{amount}</p><p className="text-xs text-gray-500">{date}</p></div>
     </div>
-    <div className="text-right">
-      <p className="font-bold text-green-400">{amount}</p>
-      <p className="text-xs text-gray-500">{date}</p>
-    </div>
-  </div>
 );
 
 const Badge = ({ icon, title, description }: BadgeProps) => (
