@@ -2,6 +2,19 @@
 
 @theme {
   --color-primary: #55daa9;
+  --color-primary-dark: #2E8B74;
+  --color-accent: #FFD66B;
+  --color-bg: #F7F9F8;
+  --color-surface: #ffffff;
+  --color-text-primary: #2D2D2D;
+  --color-text-secondary: #5F6F6A;
+  --color-bg-dark: #121715;
+  --color-dark-surface: #1E2421;
+  --color-dark-text-primary: #E8F5F0;
+  --color-dark-text-secondary: #A0B2AC;
+  --color-dark-primary: #55daa9;
+  --color-dark-primary-dark: #7FE3BF;
+  --color-dark-accent: #FFD66B;
 }
 
 @custom-variant dark (&:where(.dark, .dark *));
