@@ -33,7 +33,7 @@ export default function LoginForm() {
       (async () => {
         if (state?.message === "Login berhasil") {
           await success(state.message);
-          router.push("/");
+          router.push("/dashboard");
         } else {
           await failed(state.message);
         }

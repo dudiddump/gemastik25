@@ -31,20 +31,20 @@ const initialState = {
 
 export default function RegisterForm() {
   const [state, formAction, pending] = useActionState(register, initialState);
-  const router = useRouter()
+  const router = useRouter();
 
   useEffect(() => {
-  if (state?.message) {
-    (async () => {
-      if(state?.message === "Registrasi berhasil, silahkan login"){
-        await success(state.message);
+    if (state?.message) {
+      (async () => {
+        if (state?.message === "Registrasi berhasil, silahkan login") {
+          await success(state.message);
       } else {
-        await info(state.message);
-      }
-      router.push("/login");
-    })();
-  }
-}, [state?.message, router]);
+          await info(state.message);
+        }
+        router.push("/login");
+      })();
+    }
+  }, [state?.message, router]);
 
   return (
     <form className="mt-5 space-y-5" action={formAction}>

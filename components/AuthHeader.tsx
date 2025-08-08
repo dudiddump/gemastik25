@@ -1,3 +1,5 @@
+import Logo from "./Logo";
+
 export default function AuthHeader({
   title,
   subtitle,
@@ -6,8 +8,8 @@ export default function AuthHeader({
   subtitle: string;
 }) {
   return (
-    <div>
-      <h1 className="text-center">logo</h1>
+    <div className="flex flex-col items-center">
+      <Logo/>
       <h1 className="text-2xl font-bold text-center text-gray-800 dark:text-white">
         {title}
       </h1>

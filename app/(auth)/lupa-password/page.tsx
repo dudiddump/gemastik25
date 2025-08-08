@@ -1,8 +1,6 @@
 import AuthHeader from "@/components/AuthHeader";
 import AuthNavigation from "@/components/AuthNavigation";
-import Button from "@/components/Button";
-import FormInput from "@/components/FormInput";
-import { Mail } from "lucide-react";
+import ForgetPassword from "@/components/ForgetPassword";
 
 export default function lupaPassword() {
   return (
@@ -13,18 +11,7 @@ export default function lupaPassword() {
           subtitle="Masukkan email kamu, kami akan kirim link reset password"
         />
 
-        <form action="" className="mt-5">
-          <FormInput
-            label="Email"
-            placeholder="Masukkan email"
-            name="email"
-            type="email"
-            icon={<Mail className="dark:text-gray-400" />}
-          />
-          <Button className="bg-primary w-full mt-2 text-white font-semibold dark:text-gray-800">
-            Kirim Reset Password
-          </Button>
-        </form>
+       <ForgetPassword/>
 
         <div className="flex items-center justify-center">
           <AuthNavigation
