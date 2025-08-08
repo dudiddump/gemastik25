@@ -9,9 +9,38 @@ import {
   Trophy,
   MessageCircle,
 } from "lucide-react";
+import UserInfoMobile from "./UserInfoMobile";
+import { createClient } from "@/utils/supabase/clilent";
+import { useEffect, useState } from "react";
+
+interface User {
+  username: string;
+  email: string;
+  xp: number;
+}
 
 export default function MobileNavList() {
   const { isOpen } = useToggleStore();
+  const [user, setUser] = useState<User | null>(null);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const supabase = createClient();
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
+      const { data } = await supabase
+        .from("users")
+        .select("*")
+        .eq("auth_id", user?.id)
+        .single();
+      setUser(data);
+      console.log(data);
+      console.log(user);
+    };
+
+    fetchUser();
+  }, []);
 
   return (
     <>
@@ -64,7 +93,15 @@ export default function MobileNavList() {
           </li>
         </ul>
 
-        <LoginButton className="lg:hidden mt-5 text-center" />
+        {user ? (
+          <UserInfoMobile
+            name={user?.username || ""}
+            email={user?.email || ""}
+            xp={user?.xp || 0}
+          />
+        ) : (
+          <LoginButton className="lg:hidden mt-5 text-center" />
+        )}
       </div>
     </>
   );

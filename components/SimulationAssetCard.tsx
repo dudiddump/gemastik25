@@ -24,7 +24,7 @@ export default function SimmulationAssetCard({
   const { setSelectedInvestments } = useInvestmentStore();
 
   const riskColor: Record<RiskLevel, string> = {
-    Low: "bg-green-100 text-green-600",
+    Low: "bg-green-100 text-primary",
     Medium: "bg-orange-100 text-orange-600",
     High: "bg-red-100 text-red-600",
   };
@@ -55,7 +55,7 @@ export default function SimmulationAssetCard({
           <div className="grid grid-cols-2 gap-2 my-4">
             <div className="bg-green-50 dark:bg-gray-800 p-3 rounded-md text-center">
               <p className="text-sm text-gray-500">Expected Return</p>
-              <p className="font-bold text-green-600 text-md">
+              <p className="font-bold text-primary text-md">
                 {new Intl.NumberFormat("id-ID", {
                   maximumFractionDigits: 1,
                 }).format(item.expectedReturn * 100)}
@@ -64,7 +64,7 @@ export default function SimmulationAssetCard({
             </div>
             <div className="bg-green-50 dark:bg-gray-800 p-3 rounded-md text-center">
               <p className="text-sm text-gray-500">Min. Investment</p>
-              <p className="font-bold text-green-600 text-md">
+              <p className="font-bold text-primary text-md">
                 {item.minInvestment}
               </p>
             </div>
@@ -72,7 +72,7 @@ export default function SimmulationAssetCard({
 
           {/* Keuntungan */}
           <div className="mb-2">
-            <h4 className="text-green-600 font-semibold flex items-center gap-1 text-sm">
+            <h4 className="text-primary font-semibold flex items-center gap-1 text-sm">
               <CheckCircle size={16} /> Keuntungan:
             </h4>
             <ul className="list-disc list-inside text-sm text-gray-700 dark:text-gray-400">

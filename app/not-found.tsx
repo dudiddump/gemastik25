@@ -20,7 +20,7 @@ export default function NotFound() {
 
           <Link
             href="/"
-            className="inline-flex items-center bg-primary text-white font-semibold py-3 px-6 rounded-lg hover:bg-green-700 dark:hover:bg-green-600 transition-colors duration-300 shadow-lg dark:text-gray-800 "
+            className="inline-flex items-center bg-primary text-white font-semibold py-3 px-6 rounded-lg hover:bg-green-700 dark:hover:bg-primary transition-colors duration-300 shadow-lg dark:text-gray-800 "
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
             Kembali ke Beranda
