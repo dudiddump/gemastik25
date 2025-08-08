@@ -26,7 +26,7 @@ export default async function Navbar() {
     >
       <nav className="py-3 flex items-center justify-between xl:px-20 px-5 z-10 container mx-auto">
         {/* logo */}
-        <Logo />
+        <Logo  />
         {/* menu list */}
         <MenuList />
 
